@@ -12,11 +12,15 @@
  * @param string $class_name
  */
 function autoload_class($class_name) {
+    
+    require_once("classes/jwt.php");
+    
     $directories = array(
         'classes/',
         'classes/controllers/',
         'classes/models/'
     );
+    
     foreach ($directories as $directory) {
         $filename = $directory . $class_name . '.php';
         if (is_file($filename)) {
@@ -24,6 +28,7 @@ function autoload_class($class_name) {
             break;
         }
     }
+
 }
 
 /**
